@@ -13341,7 +13341,7 @@ Nós complementamos para você este arquivo com os dados de clima de Nova Iorque
 <span class="k">def</span> <span class="nf">max_temp_aggregate_by_fog</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
     
     <span class="c1">#your code here </span>
-    <span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;select distinct DATEn, fog, maxtempi from df order by DATEn, fog&quot;</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;select max(maxtempi) as maxtempi from df where fog=1&quot;</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">pandasql</span><span class="o">.</span><span class="n">sqldf</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
     
     <span class="k">return</span> <span class="n">result</span>
@@ -13394,191 +13394,13 @@ Nós complementamos para você este arquivo com os dados de clima de Nova Iorque
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>DATEn</th>
-      <th>fog</th>
       <th>maxtempi</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>2011-05-01</td>
-      <td>0.0</td>
-      <td>69.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2011-05-02</td>
-      <td>0.0</td>
-      <td>63.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2011-05-03</td>
-      <td>0.0</td>
-      <td>75.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2011-05-04</td>
-      <td>0.0</td>
-      <td>64.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2011-05-05</td>
-      <td>0.0</td>
-      <td>65.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>2011-05-06</td>
-      <td>0.0</td>
-      <td>72.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>2011-05-07</td>
-      <td>0.0</td>
-      <td>72.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>2011-05-08</td>
-      <td>0.0</td>
-      <td>74.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2011-05-09</td>
-      <td>0.0</td>
-      <td>71.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>2011-05-10</td>
-      <td>0.0</td>
-      <td>75.0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>2011-05-11</td>
-      <td>0.0</td>
-      <td>71.0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>2011-05-12</td>
-      <td>0.0</td>
-      <td>74.0</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>2011-05-13</td>
-      <td>0.0</td>
-      <td>67.0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>2011-05-14</td>
-      <td>0.0</td>
-      <td>64.0</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>2011-05-15</td>
-      <td>1.0</td>
-      <td>69.0</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>2011-05-16</td>
-      <td>0.0</td>
-      <td>62.0</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>2011-05-17</td>
-      <td>0.0</td>
-      <td>60.0</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>2011-05-18</td>
-      <td>1.0</td>
-      <td>67.0</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>2011-05-19</td>
-      <td>1.0</td>
-      <td>75.0</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>2011-05-20</td>
-      <td>0.0</td>
-      <td>64.0</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>2011-05-21</td>
-      <td>0.0</td>
-      <td>78.0</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>2011-05-22</td>
-      <td>0.0</td>
-      <td>58.0</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>2011-05-23</td>
-      <td>1.0</td>
-      <td>67.0</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>2011-05-24</td>
-      <td>1.0</td>
       <td>81.0</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>2011-05-25</td>
-      <td>0.0</td>
-      <td>84.0</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>2011-05-26</td>
-      <td>0.0</td>
-      <td>78.0</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>2011-05-27</td>
-      <td>0.0</td>
-      <td>83.0</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>2011-05-28</td>
-      <td>0.0</td>
-      <td>84.0</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>2011-05-29</td>
-      <td>0.0</td>
-      <td>82.0</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>2011-05-30</td>
-      <td>0.0</td>
-      <td>86.0</td>
     </tr>
   </tbody>
 </table>
@@ -14020,7 +13842,7 @@ Abaixo está um exemplo sobre como traçar histogramas com pandas e matplotlib:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Resposta </strong>: O histograma mostra uma Distribuição Inclinada. Não existe uma diferença na distribuição, porém, há uma diferença na quantidade de entradas, onde nos dias com chuva a frequência de entrada é menor que nos dias sem chuva.</p>
+<p><strong> Resposta </strong>: O histograma mostra uma Distribuição Inclinada Positiva. Não existe uma diferença na distribuição, porém, há uma diferença na quantidade de entradas, onde nos dias com chuva a frequência de entrada é menor que nos dias sem chuva.</p>
 
 </div>
 </div>
